@@ -1,9 +1,5 @@
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/sidebar";
 
 export default function Home() {
-  return (
-    <div className="bg-black flex w-screen h-screen">
-      <Sidebar/>
-    </div>
-  );
+  return <div></div>;
 }
