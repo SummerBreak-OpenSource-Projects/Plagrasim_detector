@@ -3,7 +3,10 @@ from django.conf import settings
 from .models import UploadedFile
 from .serializers import UploadedFileSerializer
 
-ALLOWED_FILE_TYPES = ['pdf', 'docx', 'txt']
+import PyPDF2
+import docx  # Correctly import the python-docx module
+
+ALLOWED_FILE_TYPES = ['pdf', 'docx']
 
 def file_upload(request):
     if request.method == 'POST' and request.FILES.get('file'):
@@ -20,20 +23,20 @@ def file_upload(request):
         text_content = ""
         try:
             if file_extension == 'pdf':
-                # Code to extract text from PDF file
-                pass
+                pdf_reader = PyPDF2.PdfReader(uploaded_file_obj.file)
+                for page_num in range(len(pdf_reader.pages)):
+                    text_content += pdf_reader.pages[page_num].extract_text()
             elif file_extension == 'docx':
-                # Code to extract text from DOCX file
-                pass
-            elif file_extension == 'txt':
-                text_content = uploaded_file_obj.file.read().decode('utf-8')
+                docx_doc = docx.Document(uploaded_file_obj.file)
+                for paragraph in docx_doc.paragraphs:
+                    text_content += paragraph.text
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=400)
         
         # Update the UploadedFile object with text content
         uploaded_file_obj.text_content = text_content
         uploaded_file_obj.save()
-        
+        print(text_content)
         return JsonResponse({'status': 'File uploaded and text content extracted successfully'})
     else:
         return JsonResponse({'error': 'No file found in the request'}, status=400)
