@@ -1,9 +1,11 @@
+"use client";
+
 import SideTab from "./side-tab";
 import { FaRegFilePowerpoint } from "react-icons/fa";
 
 export default function Sidebar() {
   return (
-    <div className="h-screen w-80 bg-black border-r border-r-[#2B2B2B] text-white">
+    <div className=" w-80 bg-black border-r border-r-[#2B2B2B] text-white">
       <header className="p-10">
         <div className="flex gap-3">
           <div className="w-3 h-3 rounded-full bg-[#712E9A]" />
@@ -18,6 +20,11 @@ export default function Sidebar() {
           icon={FaRegFilePowerpoint}
           text="Plagiarism Checker"
           href="/plagiarism-checker"
+        />
+        <SideTab
+          icon={FaRegFilePowerpoint}
+          text="Grammar Checker"
+          href="/grammar-checker"
         />
       </nav>
     </div>
