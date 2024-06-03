@@ -40,3 +40,17 @@ def file_upload(request):
         return JsonResponse({'status': 'File uploaded and text content extracted successfully'})
     else:
         return JsonResponse({'error': 'No file found in the request'}, status=400)
+
+def latest_file_detail(request):
+    try:
+        uploaded_file = UploadedFile.objects.latest('id')
+    except UploadedFile.DoesNotExist:
+        return JsonResponse({'error': 'No files found'}, status=404)
+    
+    text_content = uploaded_file.text_content
+    word_count = len(text_content.split())
+    
+    return JsonResponse({
+        'text_content': text_content,
+        'word_count': word_count
+    })
