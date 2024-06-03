@@ -1,8 +1,12 @@
-# Plagiarism Detector
+<p align="center">
+  <img src="https://github.com/SummerBreak-OpenSource-Projects/Plagrasim_detector/assets/127578046/9fc11c87-984c-4d41-82c2-37f395f5ec56" alt="Image" width="600" height="200">
+</p>
+
+# Trikina
 
 ## Overview
 
-The Plagiarism Detector project aims to provide a robust solution for detecting instances of plagiarism in academic documents. It offers a user-friendly interface for uploading documents and analyzing them for potential plagiarized content. The system incorporates web scraping techniques to compare uploaded documents with relevant online sources, primarily Wikipedia, to identify similarities and potential instances of plagiarism.
+Trikina is a plagiarism detector project that aims to provide a robust solution for detecting instances of plagiarism in academic documents. It offers a user-friendly interface for uploading documents and analyzing them for potential plagiarized content. The system incorporates web scraping techniques to compare uploaded documents with relevant online sources, primarily Wikipedia, to identify similarities and potential instances of plagiarism.
 
 ## Features
 
