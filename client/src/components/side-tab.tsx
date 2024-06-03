@@ -13,7 +13,7 @@ export type SideTabProps = {
 
 export default function SideTab({ icon: Icon, text, href }: SideTabProps) {
   const pathname = usePathname();
-  const isActive = pathname.startsWith(href);
+  const isActive = pathname === href;
 
   return (
     <Link href={href}>

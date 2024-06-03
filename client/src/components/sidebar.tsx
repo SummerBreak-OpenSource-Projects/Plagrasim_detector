@@ -19,7 +19,7 @@ export default function Sidebar() {
         <SideTab
           icon={FaRegFilePowerpoint}
           text="Plagiarism Checker"
-          href="/plagiarism-checker"
+          href="/"
         />
         <SideTab
           icon={FaRegFilePowerpoint}
