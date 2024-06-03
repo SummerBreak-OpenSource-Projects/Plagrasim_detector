@@ -7,12 +7,12 @@ import Card from "../ui/card";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const FileUpload: React.FC = () => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setFiles(Array.from(event.target.files));
+    if (event.target.files && event.target.files.length > 0) {
+      setFile(event.target.files[0]);
     }
   };
 
@@ -22,8 +22,8 @@ const FileUpload: React.FC = () => {
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    if (event.dataTransfer.files) {
-      setFiles(Array.from(event.dataTransfer.files));
+    if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+      setFile(event.dataTransfer.files[0]);
     }
   };
 
@@ -32,7 +32,7 @@ const FileUpload: React.FC = () => {
   };
 
   const handelDeleteFile = () => {
-    setFiles([]);
+    setFile(null);
   };
 
   return (
@@ -70,19 +70,14 @@ const FileUpload: React.FC = () => {
         </div>
         <input
           type="file"
-          multiple
           onChange={handleFileChange}
           ref={fileInputRef}
           style={{ display: "none" }}
         />
-        {files.length > 0 && (
+        {file && (
           <div>
-            <p>Selected files:</p>
-            <ul>
-              {files.map((file, index) => (
-                <li key={index}>{file.name}</li>
-              ))}
-            </ul>
+            <p>Selected file:</p>
+            <p>{file.name}</p>
           </div>
         )}
       </div>
