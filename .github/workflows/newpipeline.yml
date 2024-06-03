@@ -53,6 +53,7 @@ jobs:
           cd server
           python -m venv venv
           source venv/bin/activate
+          echo "Django>=3.2" > requirements.txt  # Example dependency
           pip install -r requirements.txt
 
       - name: Apply migrations
