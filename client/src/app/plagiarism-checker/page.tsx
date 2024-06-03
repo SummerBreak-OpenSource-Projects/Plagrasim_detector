@@ -6,7 +6,7 @@ import { HiOutlineDesktopComputer } from "react-icons/hi";
 
 export default function PlagiarismChecker() {
   return (
-    <div className="w-full h-full p-8 flex flex-col gap-10 items-center">
+    <div className="w-full h-fit p-8 flex flex-col gap-10 items-center">
       <h1 className="text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#FF3CB5] to-[#4D4B98]">
         Plagiarism Checker
       </h1>

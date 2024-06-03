@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased bg-slate-400 flex`}>
+      <body
+        className={`${poppins.className} antialiased bg-slate-400 flex h-screen w-full`}
+      >
         <Sidebar />
         <div className="bg-black flex-1 text-white overflow-y-auto">
           {children}
